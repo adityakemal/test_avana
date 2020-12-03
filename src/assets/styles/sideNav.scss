@@ -34,11 +34,9 @@
             margin: 0;
             padding: 0;
             a{
+                transition: .3s;
                 text-decoration: none;
                 color: whitesmoke;
-            }
-            li, a{
-                list-style-type: none;
                 height: 50px;
                 padding-left: 20px;
                 display: flex;
