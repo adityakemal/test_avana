@@ -1,0 +1,71 @@
+.side_nav{
+    background-color: #1E1E1E;
+    height: 100vh;
+    overflow-y: scroll;
+    font-size: 14px !important;
+    .head{
+        padding: 35px 0 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .logo{
+            width: 150px;
+            margin-bottom: 50px;
+        }
+        .profile{
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 25px;
+        }
+        .name{
+            color: white;
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+    }
+
+    .menus{
+        color: white;
+        margin-bottom: 80px;
+        ul{
+            margin: 0;
+            padding: 0;
+            a{
+                text-decoration: none;
+                color: whitesmoke;
+            }
+            li, a{
+                list-style-type: none;
+                height: 50px;
+                padding-left: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-right: 20px;
+                cursor: pointer;
+                font-weight: 300;
+                &:hover{
+                    background-color: #323232;
+                    border-right: 2px solid #FDB815;
+                }
+            }
+            .active{
+                background-color: #323232;
+                border-right: 2px solid #FDB815;
+            }
+
+            .child{
+                padding-left: 30px;
+                color: #919191;
+            }
+
+            .g_child{
+                padding-left: 45px;
+                color: #919191;
+            }
+        }
+    }
+}
