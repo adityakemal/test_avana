@@ -33,7 +33,7 @@
         ul{
             margin: 0;
             padding: 0;
-            a{
+            a,li{
                 transition: .3s;
                 text-decoration: none;
                 color: whitesmoke;
@@ -58,12 +58,21 @@
 
             .child{
                 padding-left: 30px;
-                color: #919191;
+                color: white;
             }
 
             .g_child{
                 padding-left: 45px;
-                color: #919191;
+                color: white;
+            }
+            li.disabled{
+                background-color: #919191;
+                color: whitesmoke;
+                cursor: not-allowed;
+                &:hover{
+                    border: unset;
+                    background-color: #919191;
+                }
             }
         }
     }
