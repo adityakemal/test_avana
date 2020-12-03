@@ -18,7 +18,7 @@ const reducer = (state = initialState, action) =>{
     }
 
     if (action.type === "ACTIVE_CHILD_TAB") {
-        console.log(action.data);
+        // console.log(action.data);
         return {
           ...state,
           dataActiveChildTab: action.data,

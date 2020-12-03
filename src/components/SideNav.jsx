@@ -10,7 +10,7 @@ class SideNav extends Component {
     listComp = ()=>{
         const dataNav = this.props.data
         const isActiveTab = this.props.dataActiveTab
-        console.log(this.props)
+        // console.log(this.props)
         return(
             dataNav.map((res,i)=>(
                 <Fragment key={i} >
@@ -33,7 +33,7 @@ class SideNav extends Component {
 
     listCompChild = (data)=>{
         const isActiveChildTab = this.props.dataActiveChildTab
-        console.log(isActiveChildTab, 'child tab')
+        // console.log(isActiveChildTab, 'child tab')
         return(
             data.map((res,i)=>(
                 <Fragment key={i} >
