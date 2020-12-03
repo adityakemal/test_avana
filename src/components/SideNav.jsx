@@ -29,7 +29,7 @@ class SideNav extends Component {
                         </NavLink>
                         :res.isShowed === true && res.isAllowed === false?
                             <li className='disabled'>{res.id} <span>Disabled</span>
-                            {res.childs? isActiveTab === res.id ? <ChevronUp/> : <ChevronDown/> : null}
+                            {res.childs? <ChevronDown/> : null}
                             </li>
                         :null
                     }
@@ -60,8 +60,8 @@ class SideNav extends Component {
                         </NavLink>
                         :res.isShowed === true && res.isAllowed === false?
                         <li className='disabled child'>{res.id} <span>Disabled</span>
-                            {res.childs? isActiveChildTab === res.id ? <ChevronUp/> : <ChevronDown/> : null}
-                        <ChevronDown/> </li>
+                            {res.childs? <ChevronDown/> : null}
+                        </li>
                         :null
                     }
                     {res.childs && isActiveChildTab === res.id? this.listCompGrandChild(res.childs) : null}
