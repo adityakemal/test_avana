@@ -2,10 +2,13 @@ import React, { Component, Fragment } from 'react';
 import { Grid } from '@material-ui/core';
 import logo from '../assets/img/logo.png'
 import {connect} from 'react-redux';
-import { ChevronDown, ChevronUp } from 'react-feather';
+import { ChevronDown, ChevronUp, Menu, X } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 
 class SideNav extends Component {
+    state={
+        toggle : false
+    }
 
     listComp = ()=>{
         const dataNav = this.props.data
@@ -86,9 +89,17 @@ class SideNav extends Component {
         )
     }
 
+    toggle = () =>  this.props.handleToggle(!this.props.toggleMenu)
+
     render() {
         // console.log(this.props.dataActiveTab, 'activated')
         return (
+            <>
+            <div className="toggle" onClick={this.toggle}>
+                {!this.props.toggleMenu?<Menu/> : <X/>}
+            </div>
+            {
+                this.props.toggleMenu?
             <Grid item xs={12} sm={2} className='side_nav'>
                 <div className="head">
                     <img className='logo' src={logo} alt='logo' />
@@ -101,6 +112,9 @@ class SideNav extends Component {
                     </ul>
                 </div>
             </Grid>
+            :null
+            }
+            </>
         );
     }
 }
@@ -110,6 +124,7 @@ const mapStateToProps = (state) => {
       data: state.jsonNav,
       dataActiveTab : state.dataActiveTab,
       dataActiveChildTab : state.dataActiveChildTab,
+      toggleMenu : state.toggleMenu,
     };
 };
   
@@ -117,6 +132,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         activeTab: (data) => dispatch({ type: "ACTIVE_TAB", data: data }),
         activeChildTab: (data) => dispatch({ type: "ACTIVE_CHILD_TAB", data: data }),
+        handleToggle: (data) => dispatch({ type: "TOGGLE_MENU", data: data }),
     };
 };
 

@@ -4,6 +4,7 @@ import dummy from './dummyJson'
 const initialState = {
     dataActiveTab: '',
     dataActiveChildTab: '',
+    toggleMenu : true,
     jsonNav : dummy
 };
 
@@ -24,7 +25,17 @@ const reducer = (state = initialState, action) =>{
           dataActiveChildTab: action.data,
         };
     }
+
+    if (action.type === "TOGGLE_MENU") {
+        console.log(action.data);
+        return {
+          ...state,
+          toggleMenu: action.data,
+        };
+    }
+
     return state;
+
 }
 
 

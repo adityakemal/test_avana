@@ -20,7 +20,7 @@ class App extends Component {
                 <Switch>
                   <Route exact path='/' component={Dashboard}/>
                   <Route exact path='/dashboard' component={Dashboard}/>
-                  <Route exact path="*" component={()=> <h1 style={{padding : '0 40px'}}>{window.location.pathname}</h1>}/>
+                  <Route exact path="*" component={()=><Grid item xs={12} sm={true}><h1 style={{padding : '0 40px', textAlign : 'center'}}>{window.location.pathname}</h1></Grid> }/>
                 </Switch>
             </Grid>
           </Container>
