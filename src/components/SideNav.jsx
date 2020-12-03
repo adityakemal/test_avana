@@ -14,17 +14,21 @@ class SideNav extends Component {
         return(
             dataNav.map((res,i)=>(
                 <Fragment key={i} >
-                    <NavLink 
-                    to={`${res.id}`}
-                    exact
-                    activeClassName='active'
-                    onClick={ isActiveTab !== res.id ? ()=>this.props.activeTab(res.id) : ()=>this.props.activeTab('') }
-                    >
-                        {res.id} 
-                        {res.childs? 
-                            isActiveTab === res.id ? <ChevronUp/> : <ChevronDown/> 
-                        : null}
-                    </NavLink>
+                    {
+                        res.isShowed?
+                        <NavLink 
+                        to={`${res.id}`}
+                        exact
+                        activeClassName='active'
+                        onClick={ isActiveTab !== res.id ? ()=>this.props.activeTab(res.id) : ()=>this.props.activeTab('') }
+                        >
+                            {res.id} 
+                            {res.childs? 
+                                isActiveTab === res.id ? <ChevronUp/> : <ChevronDown/> 
+                            : null}
+                        </NavLink>
+                        :null
+                    }
                     {res.childs && isActiveTab === res.id? this.listCompChild(res.childs) : null}
                 </Fragment>
             )) 
@@ -37,17 +41,21 @@ class SideNav extends Component {
         return(
             data.map((res,i)=>(
                 <Fragment key={i} >
-                    <NavLink 
-                    to={`${res.id}`}
-                    className='child'
-                    onClick={ isActiveChildTab !== res.id ? ()=>this.props.activeChildTab(res.id) : ()=>this.props.activeChildTab('') }
-                    >
-                        {res.id} 
-                        {res.childs? 
-                        isActiveChildTab === res.id ? <ChevronUp/> : <ChevronDown/> 
-                        :null}
-                        
-                    </NavLink>
+                    {
+                        res.isShowed?
+                        <NavLink 
+                        to={`${res.id}`}
+                        className='child'
+                        onClick={ isActiveChildTab !== res.id ? ()=>this.props.activeChildTab(res.id) : ()=>this.props.activeChildTab('') }
+                        >
+                            {res.id} 
+                            {res.childs? 
+                            isActiveChildTab === res.id ? <ChevronUp/> : <ChevronDown/> 
+                            :null}
+                            
+                        </NavLink>
+                        :null
+                    }
                     {res.childs && isActiveChildTab === res.id? this.listCompGrandChild(res.childs) : null}
                 </Fragment>
             )) 
@@ -58,14 +66,18 @@ class SideNav extends Component {
         return(
             data.map((res,i)=>(
                 <Fragment key={i} >
-                    <NavLink to={`${res.id}`} className='g_child'>{res.id}</NavLink>
+                    {
+                        res.isShowed === true?
+                        <NavLink to={`${res.id}`} className='g_child'>{res.id}</NavLink>
+                        :null
+                    }
                 </Fragment>
             )) 
         )
     }
 
     render() {
-        console.log(this.props.dataActiveTab, 'activated')
+        // console.log(this.props.dataActiveTab, 'activated')
         return (
             <Grid item xs={12} sm={2} className='side_nav'>
                 <div className="head">
