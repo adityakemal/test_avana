@@ -1,7 +1,7 @@
 .side_nav{
     background-color: #1E1E1E;
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     font-size: 14px !important;
     .head{
         padding: 35px 0 40px;
@@ -47,6 +47,7 @@
                 padding-right: 20px;
                 cursor: pointer;
                 font-weight: 300;
+                text-transform: capitalize;
                 &:hover{
                     background-color: #323232;
                     border-right: 2px solid #FDB815;
