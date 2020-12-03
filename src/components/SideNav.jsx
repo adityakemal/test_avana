@@ -15,7 +15,7 @@ class SideNav extends Component {
             dataNav.map((res,i)=>(
                 <Fragment key={i} >
                     {
-                        res.isShowed?
+                        res.isShowed === true && res.isAllowed === true?
                         <NavLink 
                         to={`${res.id}`}
                         exact
@@ -27,8 +27,10 @@ class SideNav extends Component {
                                 isActiveTab === res.id ? <ChevronUp/> : <ChevronDown/> 
                             : null}
                         </NavLink>
-                        :res.isAllowed === false?
-                            <li className='disabled'>{res.id}</li>
+                        :res.isShowed === true && res.isAllowed === false?
+                            <li className='disabled'>{res.id} <span>Disabled</span>
+                            {res.childs? isActiveTab === res.id ? <ChevronUp/> : <ChevronDown/> : null}
+                            </li>
                         :null
                     }
                     {res.childs && isActiveTab === res.id? this.listCompChild(res.childs) : null}
@@ -44,7 +46,7 @@ class SideNav extends Component {
             data.map((res,i)=>(
                 <Fragment key={i} >
                     {
-                        res.isShowed?
+                        res.isShowed && res.isAllowed?
                         <NavLink 
                         to={`${res.id}`}
                         className='child'
@@ -56,8 +58,10 @@ class SideNav extends Component {
                             :null}
                             
                         </NavLink>
-                        :res.isAllowed === false?
-                        <li className='disabled child'>{res.id}</li>
+                        :res.isShowed === true && res.isAllowed === false?
+                        <li className='disabled child'>{res.id} <span>Disabled</span>
+                            {res.childs? isActiveChildTab === res.id ? <ChevronUp/> : <ChevronDown/> : null}
+                        <ChevronDown/> </li>
                         :null
                     }
                     {res.childs && isActiveChildTab === res.id? this.listCompGrandChild(res.childs) : null}
@@ -74,7 +78,7 @@ class SideNav extends Component {
                         res.isShowed && res.isAllowed?
                         <NavLink to={`${res.id}`} className='g_child'>{res.id}</NavLink>
                         :res.isAllowed === false?
-                        <li className='disabled g_child'>{res.id}</li>
+                        <li className='disabled g_child'>{res.id} <span>Disabled</span></li>
                         :null
                     }
                 </Fragment>

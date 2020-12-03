@@ -69,6 +69,10 @@
                 background-color: #919191;
                 color: whitesmoke;
                 cursor: not-allowed;
+                span{
+                    font-size: 10px;
+                    font-style: italic;
+                }
                 &:hover{
                     border: unset;
                     background-color: #919191;
